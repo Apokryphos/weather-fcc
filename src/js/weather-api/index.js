@@ -26,9 +26,9 @@ const WeatherApi = (function() {
     const temp = json.main.temp;
 
     return {
-      temperature: temp,
+      temperature: temp
     };
-  }
+  };
 
   const getWeather = function(callback) {
     if ('geolocation' in navigator) {
