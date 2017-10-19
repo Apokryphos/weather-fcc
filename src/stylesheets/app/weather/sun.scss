@@ -1,0 +1,12 @@
+@import 'common';
+
+$sun-animation-duration: 10s;
+$sun-color: orange;
+
+.sun {
+  animation-duration: $sun-animation-duration;
+  animation-iteration-count: infinite;
+  animation-name: rotate-animation;
+  animation-timing-function: linear;
+  color: $sun-color;
+}

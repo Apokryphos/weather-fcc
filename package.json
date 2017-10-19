@@ -9,7 +9,7 @@
   "scripts": {
     "build": "webpack --config webpack.production.config.js",
     "start": "webpack --watch --config webpack.development.config.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "tape test | faucet"
   },
   "author": "Tony Slavotinek",
   "license": "ISC",
@@ -23,11 +23,13 @@
     "copy-webpack-plugin": "^4.1.1",
     "css-loader": "^0.28.7",
     "extract-text-webpack-plugin": "^3.0.1",
+    "faucet": "0.0.1",
     "node-sass": "^4.5.3",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.19.0",
+    "tape": "^4.8.0",
     "webpack": "^3.8.1",
     "webpack-merge": "^4.1.0"
   },

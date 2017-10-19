@@ -1,3 +1,6 @@
+const WeatherData = require('./weather-data.js');
+const WeatherStatus = require('./weather-status.js');
+
 const WeatherApi = (function() {
   const endpoint = 'https://fcc-weather-api.glitch.me';
 
@@ -22,16 +25,6 @@ const WeatherApi = (function() {
       });
   };
 
-  const convertJson = function(json) {
-    const loc = `${json.name}, ${json.sys.country}`;
-    const temp = json.main.temp;
-
-    return {
-      location: loc,
-      temperature: temp
-    };
-  };
-
   const getWeather = function(callback) {
     if ('geolocation' in navigator) {
       const success = function(position) {
@@ -42,7 +35,7 @@ const WeatherApi = (function() {
           console.log(JSON.stringify(json));
 
           if (callback) {
-            callback(convertJson(json));
+            callback(new WeatherData(json));
           }
         });
       };
@@ -57,8 +50,18 @@ const WeatherApi = (function() {
     }
   };
 
+  const getMockWeather = function(callback, status = WeatherStatus.CLEAR) {
+    if (callback) {
+      callback({
+        location: 'MOCK',
+        temperature: 25,
+        status
+      });
+    }
+  };
+
   return {
-    getWeather
+    getWeather: getMockWeather
   };
 })();
 

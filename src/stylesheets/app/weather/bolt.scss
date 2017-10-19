@@ -1,0 +1,15 @@
+@import 'common';
+
+$bolt-animation-duration: 1s;
+$bolt-color: yellow;
+
+.bolt {
+  color: $bolt-color;
+}
+
+.bolt-fade {
+  animation-duration: $bolt-animation-duration;
+  animation-iteration-count: infinite;
+  animation-name: fade-animation;
+  animation-timing-function: linear;
+}

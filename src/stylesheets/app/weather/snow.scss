@@ -1,0 +1,26 @@
+@import 'common';
+
+$snow-animation-duration: 5s;
+$snow-color: white;
+
+.snow {
+  animation-duration: $snow-animation-duration;
+  animation-iteration-count: infinite;
+  animation-name: rotate-animation;
+  animation-timing-function: linear;
+  color: $snow-color;
+}
+
+.snow-fade {
+  animation-duration: $snow-animation-duration;
+  animation-iteration-count: infinite;
+  animation-name: fade-animation;
+  animation-timing-function: linear;
+}
+
+.snow-fall {
+  animation-duration: $snow-animation-duration;
+  animation-iteration-count: infinite;
+  animation-name: fall-animation;
+  animation-timing-function: linear;
+}

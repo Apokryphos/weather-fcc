@@ -1,0 +1,13 @@
+@import 'common';
+
+$sun-animation-duration: 10s;
+$cloud-color: #bbb;
+$cloud-storm-color: #444;
+
+.cloud {
+  color: $cloud-color;
+}
+
+.cloud-storm {
+  color: $cloud-storm-color;
+}
