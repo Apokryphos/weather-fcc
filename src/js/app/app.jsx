@@ -21,7 +21,12 @@ class App extends React.Component {
 
   render() {
     if (this.state.weather) {
-      return <Temperature temperature={this.state.weather.temperature} />;
+      return (
+        <div>
+          <span>{this.state.weather.location}</span>
+          <Temperature temperature={this.state.weather.temperature} />
+        </div>
+      );
     } else {
       return null;
     }

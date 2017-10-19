@@ -23,9 +23,11 @@ const WeatherApi = (function() {
   };
 
   const convertJson = function(json) {
+    const loc = `${json.name}, ${json.sys.country}`;
     const temp = json.main.temp;
 
     return {
+      location: loc,
       temperature: temp
     };
   };
