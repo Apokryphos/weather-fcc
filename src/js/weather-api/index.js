@@ -22,8 +22,41 @@ const WeatherApi = (function() {
       });
   };
 
+  const convertJson = function(json) {
+    const temp = json.main.temp;
+
+    return {
+      temperature: temp,
+    };
+  }
+
+  const getWeather = function(callback) {
+    if ('geolocation' in navigator) {
+      const success = function(position) {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+
+        fetchData(latitude, longitude, function(json) {
+          console.log(JSON.stringify(json));
+
+          if (callback) {
+            callback(convertJson(json));
+          }
+        });
+      };
+
+      const error = function(e) {
+        console.error(e);
+      };
+
+      navigator.geolocation.getCurrentPosition(success, error);
+    } else {
+      //  Geolocation is unavailable.
+    }
+  };
+
   return {
-    fetchData
+    getWeather
   };
 })();
 
