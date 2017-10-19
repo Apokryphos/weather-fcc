@@ -1,6 +1,17 @@
+/*
+  Displays temperature value.
+ */
 .temperature {
   border: 1px solid red;
   display: inline-block;
   height: 5em;
   width: 5em;
+}
+
+/*
+  Toggles between Fahrenheit and Celsius.
+ */
+.temperature-uom {
+  color: blue;
+  cursor: pointer;
 }
