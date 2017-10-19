@@ -12,7 +12,6 @@ class App extends React.Component {
   }
 
   componentWillMount() {
-    console.log('componentWillMount');
     WeatherApi.getWeather(data => {
       this.setState({
         weather: data
