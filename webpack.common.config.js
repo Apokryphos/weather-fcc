@@ -4,6 +4,7 @@ const path = require('path');
 
 module.exports = {
   entry: [
+    'whatwg-fetch',
     path.join(__dirname, 'src/js'),
     path.join(__dirname, 'src/stylesheets/main.scss')
   ],
