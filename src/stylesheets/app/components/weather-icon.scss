@@ -1,0 +1,31 @@
+$weather-icon-size: 5em;
+
+.weather-icon-container {
+  height: $weather-icon-size;
+  position: relative;
+  width: $weather-icon-size;
+}
+
+.weather-icon-sun {
+  height: $weather-icon-size;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: $weather-icon-size;
+}
+
+.weather-icon-cloud {
+  height: $weather-icon-size;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: $weather-icon-size;
+}
+
+.weather-icon-particles {
+  height: $weather-icon-size;
+  left: 0;
+  position: absolute;
+  top: 50%;
+  width: $weather-icon-size;
+}

@@ -98,10 +98,16 @@ class WeatherIcon extends React.Component {
 
   render() {
     return (
-      <div>
-        {this.renderSun(this.props.weatherStatus)}
-        {this.renderCloud(this.props.weatherStatus)}
-        {this.renderParticles(this.props.weatherStatus)}
+      <div class="weather-icon-container">
+        <div class="weather-icon-sun">
+          {this.renderSun(this.props.weatherStatus)}
+        </div>
+        <div class="weather-icon-particles">
+          {this.renderParticles(this.props.weatherStatus)}
+        </div>
+        <div class="weather-icon-cloud">
+          {this.renderCloud(this.props.weatherStatus)}
+        </div>
       </div>
     );
   }
