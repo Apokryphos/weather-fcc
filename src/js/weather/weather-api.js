@@ -50,12 +50,26 @@ const WeatherApi = (function() {
     }
   };
 
-  const getMockWeather = function(callback, status = WeatherStatus.CLEAR) {
+  const getMockWeather = function(callback, status = null) {
+    if (!status) {
+      const statuses = [
+        WeatherStatus.CLEAR,
+        WeatherStatus.CLOUDY,
+        WeatherStatus.DRIZZLE,
+        WeatherStatus.RAIN,
+        WeatherStatus.SNOW,
+        WeatherStatus.STORM
+      ];
+
+      //  Make an array with a random status in it
+      status = [statuses[Math.floor(Math.random() * statuses.length)]];
+    }
+
     if (callback) {
       callback({
         location: 'MOCK',
         temperature: 25,
-        status
+        status: status
       });
     }
   };

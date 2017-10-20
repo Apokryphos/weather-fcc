@@ -1,7 +1,7 @@
 const React = require('react');
 const Temperature = require('./components/temperature.jsx');
-const WeatherApi = require('./../weather-api');
-const WeatherStatus = require('./../weather-api/weather-status.js');
+const WeatherApi = require('./../weather/weather-api.js');
+const WeatherStatus = require('./../weather/weather-status.js');
 const WeatherIcon = require('./components/weather-icon.jsx');
 
 class App extends React.Component {
@@ -39,7 +39,7 @@ class App extends React.Component {
   renderTests() {
     const setStatus = status => () => {
       this.setState((prevState, props) => {
-        prevState.weather.status = status;
+        prevState.weather.status = [status];
         return { weather: prevState.weather };
       });
     };

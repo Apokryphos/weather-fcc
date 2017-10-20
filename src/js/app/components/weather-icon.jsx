@@ -1,5 +1,5 @@
 const React = require('react');
-const WeatherStatus = require('./../../weather-api/weather-status.js');
+const WeatherStatus = require('./../../weather/weather-status.js');
 const classNames = require('classnames');
 
 class WeatherIcon extends React.Component {
@@ -7,13 +7,12 @@ class WeatherIcon extends React.Component {
     return;
   }
 
-  renderCloudOrSun(weatherStatus) {
-    const sunny = weatherStatus === WeatherStatus.CLEAR;
-    const storm = weatherStatus === WeatherStatus.STORM;
+  renderStatusIcon(status) {
+    const sunny = status === WeatherStatus.CLEAR;
+    const storm = status === WeatherStatus.STORM;
     const cloudy = !sunny && !storm;
     const rain =
-      weatherStatus === WeatherStatus.DRIZZLE ||
-      weatherStatus === WeatherStatus.RAIN;
+      status === WeatherStatus.DRIZZLE || status === WeatherStatus.RAIN;
 
     let iconClass = classNames({
       cloud: cloudy,
@@ -25,11 +24,16 @@ class WeatherIcon extends React.Component {
       'fa-5x': true
     });
 
-    return <i className={iconClass} aria-hidden="true" />;
+    return <i key={status} className={iconClass} aria-hidden="true" />;
+  }
+
+  renderStatusIcons(statusArray) {
+    console.log(statusArray);
+    return statusArray.map(s => this.renderStatusIcon(s));
   }
 
   render() {
-    return this.renderCloudOrSun(this.props.weatherStatus);
+    return this.renderStatusIcons(this.props.weatherStatus);
   }
 }
 
