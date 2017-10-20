@@ -26,9 +26,9 @@ class App extends React.Component {
       return (
         <div id="content">
           <div id="app-content">
-            <span>{this.state.weather.location}</span>
-            <Temperature temperature={this.state.weather.temperature} />
+            <div className="location">{this.state.weather.location}</div>
             <WeatherIcon weatherStatus={this.state.weather.status} />
+            <Temperature temperature={this.state.weather.temperature} />
           </div>
           <footer>{this.renderTests()}</footer>
         </div>

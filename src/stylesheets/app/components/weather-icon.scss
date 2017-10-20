@@ -1,9 +1,14 @@
-$weather-icon-size: 5em;
+$weather-icon-size: 5.5em;
 
 .weather-icon-container {
+  border: 1px solid red;
+  display: inline-block;
   height: $weather-icon-size;
+  padding: 0;
+  margin: 0;
   position: relative;
   width: $weather-icon-size;
+  vertical-align: top;
 }
 
 .weather-icon-sun {
