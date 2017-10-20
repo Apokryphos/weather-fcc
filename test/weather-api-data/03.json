@@ -1,0 +1,35 @@
+{
+  "coord": { "lon": -121.76, "lat": 46.85 },
+  "weather": [
+    {
+      "id": 741,
+      "main": "Fog",
+      "description": "fog",
+      "icon":
+        "https://cdn.glitch.com/6e8889e5-7a72-48f0-a061-863548450de5%2F50n.png?1499366021876"
+    }
+  ],
+  "base": "stations",
+  "main": {
+    "temp": 7.36,
+    "pressure": 999,
+    "humidity": 100,
+    "temp_min": 2,
+    "temp_max": 9
+  },
+  "visibility": 402,
+  "wind": { "speed": 2.1 },
+  "clouds": { "all": 90 },
+  "dt": 1508491860,
+  "sys": {
+    "type": 1,
+    "id": 2958,
+    "message": 0.0052,
+    "country": "US",
+    "sunrise": 1508509985,
+    "sunset": 1508548169
+  },
+  "id": 5806769,
+  "name": "Pierce County",
+  "cod": 200
+}
