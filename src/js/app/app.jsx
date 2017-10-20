@@ -44,7 +44,7 @@ class App extends React.Component {
   renderTests() {
     const setStatus = status => () => {
       this.setState((prevState, props) => {
-        prevState.weather.status = [status];
+        prevState.weather.status = status;
         return { weather: prevState.weather };
       });
     };
@@ -62,12 +62,13 @@ class App extends React.Component {
         <span>
           <i className="fa fa-flask" aria-hidden="true" />
         </span>
-        {makeTestComponent(WeatherStatus.CLEAR, 'CLEAR')} |
-        {makeTestComponent(WeatherStatus.CLOUDY, 'CLOUDY')} |
-        {makeTestComponent(WeatherStatus.DRIZZLE, 'DRIZZLE')} |
-        {makeTestComponent(WeatherStatus.RAIN, 'RAIN')} |
-        {makeTestComponent(WeatherStatus.SNOW, 'SNOW')} |
-        {makeTestComponent(WeatherStatus.STORM, 'STORM')}
+        {makeTestComponent([WeatherStatus.CLEAR], 'CLEAR')} |
+        {makeTestComponent([WeatherStatus.CLOUDY], 'CLOUDY')} |
+        {/* {makeTestComponent([WeatherStatus.DRIZZLE], 'DRIZZLE')} | */}
+        {makeTestComponent([WeatherStatus.RAIN, WeatherStatus.SNOW], 'MIX')} |
+        {makeTestComponent([WeatherStatus.RAIN], 'RAIN')} |
+        {makeTestComponent([WeatherStatus.SNOW], 'SNOW')} |
+        {makeTestComponent([WeatherStatus.STORM], 'STORM')}
       </div>
     );
   }
