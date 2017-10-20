@@ -42,16 +42,22 @@ class App extends React.Component {
   }
 
   renderTests() {
-    const setStatus = status => () => {
+    const setStatus = (location, temp, status) => () => {
       this.setState((prevState, props) => {
+        prevState.weather.location = location;
+        prevState.weather.temperature = temp;
+        prevState.weather.condition = WeatherStatus.toString(status[0]);
         prevState.weather.status = status;
         return { weather: prevState.weather };
       });
     };
 
-    const makeTestComponent = function(status, label) {
+    const makeTestComponent = function(label, location, temp, status) {
       return (
-        <span className="test-option" onClick={setStatus(status)}>
+        <span
+          className="test-option"
+          onClick={setStatus(location, temp, status)}
+        >
           {label}
         </span>
       );
@@ -62,13 +68,22 @@ class App extends React.Component {
         <span>
           <i className="fa fa-flask" aria-hidden="true" />
         </span>
-        {makeTestComponent([WeatherStatus.CLEAR], 'CLEAR')} |
-        {makeTestComponent([WeatherStatus.CLOUDY], 'CLOUDY')} |
-        {/* {makeTestComponent([WeatherStatus.DRIZZLE], 'DRIZZLE')} | */}
-        {makeTestComponent([WeatherStatus.RAIN, WeatherStatus.SNOW], 'MIX')} |
-        {makeTestComponent([WeatherStatus.RAIN], 'RAIN')} |
-        {makeTestComponent([WeatherStatus.SNOW], 'SNOW')} |
-        {makeTestComponent([WeatherStatus.STORM], 'STORM')}
+        {makeTestComponent('CLEAR', 'Seattle, WA', 20, [WeatherStatus.CLEAR])} |
+        {makeTestComponent('CLOUDY', 'Glasgow, UK', 15, [WeatherStatus.CLOUDY])}
+        |
+        {makeTestComponent('MIX', 'Reykjavík, Iceland', 0, [
+          WeatherStatus.RAIN,
+          WeatherStatus.SNOW
+        ])}
+        |
+        {makeTestComponent('RAIN', 'London, UK', 14, [WeatherStatus.RAIN])} |
+        {makeTestComponent('SNOW', 'Mount Rainier National Park, WA', -7, [
+          WeatherStatus.SNOW
+        ])}
+        |
+        {makeTestComponent('STORM', 'Bald Mountain, UA', 17, [
+          WeatherStatus.STORM
+        ])}
       </div>
     );
   }
