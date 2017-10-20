@@ -1,6 +1,7 @@
 @import 'common';
+@import 'particle';
 
-$rain-fall-animation-duration: 2s;
+$rain-fall-animation-duration: 1s;
 $rain-color: blue;
 
 .rain {
@@ -8,8 +9,5 @@ $rain-color: blue;
 }
 
 .rain-fall {
-  animation-duration: $rain-fall-animation-duration;
-  animation-iteration-count: infinite;
-  animation-name: fade-animation, fall-animation;
-  animation-timing-function: linear;
+  @include ParticleFallAnimation($rain-fall-animation-duration);
 }

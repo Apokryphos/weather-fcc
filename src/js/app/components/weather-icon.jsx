@@ -48,6 +48,7 @@ class WeatherIcon extends React.Component {
     const snow = status === WeatherStatus.SNOW;
 
     let iconClass = classNames({
+      particle: !snow,
       bolt: bolt,
       'bolt-fade': bolt,
       snow: snow,
@@ -61,22 +62,34 @@ class WeatherIcon extends React.Component {
       'fa-3x': bolt
     });
 
-    const icon = <i className={iconClass} aria-hidden="true" key={status} />;
-
     //  Rotation and translation need to be in separate elements
     let containerClass = classNames({
+      particle: snow,
       'snow-fall': snow
     });
 
-    if (snow) {
-      return (
-        <div className={containerClass} key={'div_' + status}>
-          {icon}
-        </div>
+    const icons = [];
+    const iconCount = 10;
+    for (let p = 0; p < iconCount; ++p) {
+      const key = `${status}_${p}`;
+
+      //  Only use key if not wrapped in snowflake rotation container
+      const icon = (
+        <i className={iconClass} aria-hidden="true" key={snow ? null : key} />
       );
-    } else {
-      return icon;
+
+      if (snow) {
+        icons.push(
+          <div className={containerClass} key={key}>
+            {icon}
+          </div>
+        );
+      } else {
+        icons.push(icon);
+      }
     }
+
+    return icons;
   }
 
   renderParticles(statusArray) {

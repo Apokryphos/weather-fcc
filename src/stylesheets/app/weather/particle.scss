@@ -1,0 +1,29 @@
+@import 'common';
+
+$particle-count: 10;
+$particle-offsets: (0, 5, 7, 3, 6, 9, 2, 8, 1, 4);
+
+/*
+  Applies fade and fall animations.
+  Staggers animation delay.
+*/
+@mixin ParticleFallAnimation($duration) {
+  animation-duration: $duration;
+  animation-iteration-count: infinite;
+  animation-name: fade-animation, fall-animation;
+  animation-timing-function: linear;
+
+  $delay: $duration / $particle-count;
+
+  @for $i from 1 through $particle-count {
+    &:nth-of-type(#{$i}) {
+      animation-delay: $delay * nth($particle-offsets, $i);
+    }
+  }
+}
+
+.particle {
+  display: inline-block;
+  opacity: 0;
+  position: relative;
+}
