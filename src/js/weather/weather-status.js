@@ -1,10 +1,10 @@
 const WeatherStatus = {
-  CLEAR: 0,
-  CLOUDY: 1,
-  DRIZZLE: 2,
-  RAIN: 3,
-  SNOW: 4,
-  STORM: 5,
+  CLEAR: 1,
+  CLOUDY: 2,
+  DRIZZLE: 3,
+  RAIN: 4,
+  SNOW: 5,
+  STORM: 6,
   fromString(str) {
     switch (str) {
       case 'clear':
@@ -19,6 +19,22 @@ const WeatherStatus = {
         return WeatherStatus.SNOW;
       case 'thunderstorm':
         return WeatherStatus.STORM;
+    }
+  },
+  toString(status) {
+    switch (status) {
+      case WeatherStatus.CLEAR:
+        return 'Clear';
+      case WeatherStatus.CLOUDY:
+        return 'Cloudy';
+      case WeatherStatus.DRIZZLE:
+        return 'Light Rain';
+      case WeatherStatus.RAIN:
+        return 'Rain';
+      case WeatherStatus.SNOW:
+        return 'Snow';
+      case WeatherStatus.STORM:
+        return 'Thunderstorms';
     }
   }
 };

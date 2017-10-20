@@ -8,8 +8,6 @@ const WeatherApi = (function() {
     const query = `lat=${latitude}&lon=${longitude}`;
     const url = `${endpoint}/api/current?${query}`;
 
-    console.log(url);
-
     fetch(url)
       .then(function(response) {
         if (response.ok) {
@@ -32,8 +30,6 @@ const WeatherApi = (function() {
         const longitude = position.coords.longitude;
 
         fetchData(latitude, longitude, function(json) {
-          console.log(JSON.stringify(json));
-
           if (callback) {
             callback(new WeatherData(json));
           }
@@ -67,6 +63,7 @@ const WeatherApi = (function() {
 
     if (callback) {
       callback({
+        condition: WeatherStatus.toString(status[0]),
         location: 'MOCK',
         temperature: 25,
         status: status
@@ -75,7 +72,7 @@ const WeatherApi = (function() {
   };
 
   return {
-    getWeather: getMockWeather
+    getWeather
   };
 })();
 

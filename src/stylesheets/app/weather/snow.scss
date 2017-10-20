@@ -3,14 +3,14 @@
 
 $snow-fall-animation-duration: 2s;
 $snow-rotation-animation-duration: 5s;
-$snow-color: white;
+$snow-color: #d2dff4;
 
 .snow {
   animation-duration: $snow-rotation-animation-duration;
   animation-iteration-count: infinite;
   animation-name: rotate-animation;
   animation-timing-function: linear;
-  color: white;
+  color: $snow-color;
 }
 
 .snow-fall {
