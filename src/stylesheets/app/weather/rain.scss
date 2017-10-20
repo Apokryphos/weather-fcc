@@ -1,22 +1,15 @@
 @import 'common';
 
-$rain-animation-duration: 2s;
+$rain-fall-animation-duration: 2s;
 $rain-color: blue;
 
 .rain {
   color: $rain-color;
 }
 
-.rain-fade {
-  animation-duration: $rain-animation-duration;
-  animation-iteration-count: infinite;
-  animation-name: fade-animation;
-  animation-timing-function: linear;
-}
-
 .rain-fall {
-  animation-duration: $rain-animation-duration;
+  animation-duration: $rain-fall-animation-duration;
   animation-iteration-count: infinite;
-  animation-name: fall-animation;
+  animation-name: fade-animation, fall-animation;
   animation-timing-function: linear;
 }

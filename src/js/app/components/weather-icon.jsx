@@ -7,33 +7,90 @@ class WeatherIcon extends React.Component {
     return;
   }
 
-  renderStatusIcon(status) {
-    const sunny = status === WeatherStatus.CLEAR;
-    const storm = status === WeatherStatus.STORM;
-    const cloudy = !sunny && !storm;
+  renderCloud(statusArray) {
+    if (statusArray.every(s => s !== WeatherStatus.CLEAR)) {
+      const storm = statusArray.some(s => s === WeatherStatus.STORM);
+
+      let iconClass = classNames({
+        cloud: true,
+        'cloud-storm': storm,
+        fa: true,
+        'fa-cloud': true,
+        'fa-5x': true
+      });
+
+      return <i className={iconClass} aria-hidden="true" />;
+    }
+
+    return null;
+  }
+
+  renderSun(statusArray) {
+    if (statusArray.some(s => s === WeatherStatus.CLEAR)) {
+      let iconClass = classNames({
+        sun: true,
+        fa: true,
+        'fa-sun-o': true,
+        'fa-5x': true
+      });
+
+      return <i className={iconClass} aria-hidden="true" />;
+    }
+
+    return null;
+  }
+
+  renderParticle(status) {
     const rain =
       status === WeatherStatus.DRIZZLE || status === WeatherStatus.RAIN;
 
+    const bolt = status === WeatherStatus.STORM;
+    const snow = status === WeatherStatus.SNOW;
+
     let iconClass = classNames({
-      cloud: cloudy,
-      'cloud-storm': storm,
-      sun: sunny,
+      bolt: bolt,
+      'bolt-fade': bolt,
+      snow: snow,
+      'snow-rotate': snow,
+      rain: rain,
+      'rain-fall': rain,
       fa: true,
-      'fa-cloud': !sunny,
-      'fa-sun-o': sunny,
-      'fa-5x': true
+      'fa-tint': rain,
+      'fa-bolt': bolt,
+      'fa-snowflake-o': snow,
+      'fa-3x': bolt
     });
 
-    return <i key={status} className={iconClass} aria-hidden="true" />;
+    const icon = <i className={iconClass} aria-hidden="true" key={status} />;
+
+    //  Rotation and translation need to be in separate elements
+    let containerClass = classNames({
+      'snow-fall': snow
+    });
+
+    if (snow) {
+      return (
+        <div className={containerClass} key={'div_' + status}>
+          {icon}
+        </div>
+      );
+    } else {
+      return icon;
+    }
   }
 
-  renderStatusIcons(statusArray) {
-    console.log(statusArray);
-    return statusArray.map(s => this.renderStatusIcon(s));
+  renderParticles(statusArray) {
+    return statusArray.map(s => this.renderParticle(s));
   }
 
   render() {
-    return this.renderStatusIcons(this.props.weatherStatus);
+    return (
+      <div>
+        {this.renderSun(this.props.weatherStatus)}
+        {this.renderCloud(this.props.weatherStatus)}
+        {this.renderParticles(this.props.weatherStatus)}
+      </div>
+    );
   }
 }
 
