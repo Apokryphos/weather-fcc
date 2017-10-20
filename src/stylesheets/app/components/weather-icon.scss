@@ -27,6 +27,15 @@ $weather-icon-size: 5.5em;
   width: $weather-icon-size;
 }
 
+.weather-icon-bolt-container {
+  height: $weather-icon-size;
+  left: 50%;
+  position: absolute;
+  top: 70%;
+  transform: translate(-1em, 0);
+  width: $weather-icon-size;
+}
+
 .weather-icon-particles {
   height: $weather-icon-size;
   left: 0;

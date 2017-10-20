@@ -7,6 +7,23 @@ class WeatherIcon extends React.Component {
     return;
   }
 
+  renderBolt(status) {
+    if (status === WeatherStatus.STORM) {
+      let iconClass = classNames({
+        particle: true,
+        bolt: true,
+        'bolt-fade': true,
+        fa: true,
+        'fa-bolt': true,
+        'fa-3x': true
+      });
+
+      return <i className={iconClass} aria-hidden="true" key={status} />;
+    }
+
+    return null;
+  }
+
   renderCloud(statusArray) {
     if (statusArray.every(s => s !== WeatherStatus.CLEAR)) {
       const storm = statusArray.some(s => s === WeatherStatus.STORM);
@@ -44,22 +61,17 @@ class WeatherIcon extends React.Component {
     const rain =
       status === WeatherStatus.DRIZZLE || status === WeatherStatus.RAIN;
 
-    const bolt = status === WeatherStatus.STORM;
     const snow = status === WeatherStatus.SNOW;
 
     let iconClass = classNames({
       particle: !snow,
-      bolt: bolt,
-      'bolt-fade': bolt,
       snow: snow,
       'snow-rotate': snow,
       rain: rain,
       'rain-fall': rain,
       fa: true,
       'fa-tint': rain,
-      'fa-bolt': bolt,
-      'fa-snowflake-o': snow,
-      'fa-3x': bolt
+      'fa-snowflake-o': snow
     });
 
     //  Rotation and translation need to be in separate elements
@@ -92,6 +104,10 @@ class WeatherIcon extends React.Component {
     return icons;
   }
 
+  renderBolts(statusArray) {
+    return statusArray.map(s => this.renderBolt(s));
+  }
+
   renderParticles(statusArray) {
     return statusArray.map(s => this.renderParticle(s));
   }
@@ -101,6 +117,9 @@ class WeatherIcon extends React.Component {
       <div className="weather-icon-container">
         <div className="weather-icon-sun">
           {this.renderSun(this.props.weatherStatus)}
+        </div>
+        <div className="weather-icon-bolt-container">
+          {this.renderBolts(this.props.weatherStatus)}
         </div>
         <div className="weather-icon-particles">
           {this.renderParticles(this.props.weatherStatus)}
