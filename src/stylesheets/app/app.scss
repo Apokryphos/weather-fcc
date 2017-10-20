@@ -1,3 +1,32 @@
 @import 'components/temperature';
 @import 'components/weather-icon';
 @import 'weather/weather';
+
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#content {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#app-content {
+  height: calc(100% - 3em);
+  margin: 0;
+  padding: 0;
+}
+
+footer {
+  border-top: 1px solid red;
+  height: 3em;
+  margin: 0;
+  padding: 1em;
+
+  span {
+    padding-left: 0.5em;
+  }
+}
