@@ -1,0 +1,7 @@
+$media-breakpoint: 33em;
+
+@mixin media-spacious() {
+  @media screen and (min-width: $media-breakpoint) {
+    @content;
+  }
+}

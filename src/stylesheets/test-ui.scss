@@ -1,0 +1,33 @@
+@import 'media';
+@import 'palette';
+
+footer {
+  border-top: 2px solid $widget-border-color;
+  display: none;
+  opacity: 0;
+  height: 3em;
+  margin: 0;
+  padding: 1em;
+  transition: opacity 1s;
+
+  span {
+    padding-left: 0.5em;
+  }
+
+  @include media-spacious() {
+    display: block;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.test-ui {
+  color: $test-ui-color;
+  display: inline;
+}
+
+.test-option {
+  cursor: pointer;
+}

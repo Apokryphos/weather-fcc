@@ -51,14 +51,17 @@ class App extends React.Component {
 
     const makeTestComponent = function(status, label) {
       return (
-        <span className="temperature-uom" onClick={setStatus(status)}>
+        <span className="test-option" onClick={setStatus(status)}>
           {label}
         </span>
       );
     };
 
     return (
-      <div>
+      <div className="test-ui">
+        <span>
+          <i className="fa fa-flask" aria-hidden="true" />
+        </span>
         {makeTestComponent(WeatherStatus.CLEAR, 'CLEAR')} |
         {makeTestComponent(WeatherStatus.CLOUDY, 'CLOUDY')} |
         {makeTestComponent(WeatherStatus.DRIZZLE, 'DRIZZLE')} |

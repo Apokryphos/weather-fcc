@@ -1,10 +1,9 @@
 @import 'components/temperature';
 @import 'components/weather-icon';
 @import 'weather/weather';
-
-$text-color: #777;
-$widget-border-color: #ccc;
-$widget-shadow-color: #ddd;
+@import 'media';
+@import 'palette';
+@import 'test-ui';
 
 #root {
   height: 100%;
@@ -33,23 +32,11 @@ $widget-shadow-color: #ddd;
   top: 50%;
   transform: translate(0, -50%);
 
-  @media screen and (min-width: 32em) {
+  @include media-spacious() {
     border: 2px solid $widget-border-color;
     box-shadow: 2px 2px 2px $widget-shadow-color;
     margin: 0 auto;
     width: 30em;
-  }
-}
-
-footer {
-  border-top: 1px solid red;
-  display: none;
-  height: 3em;
-  margin: 0;
-  padding: 1em;
-
-  span {
-    padding-left: 0.5em;
   }
 }
 
