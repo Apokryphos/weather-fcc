@@ -18,6 +18,12 @@ function WeatherData(json) {
       }
     }
   });
+
+  //  If zero statuses were found, use the first entry for the condition.
+  //  This could happen if none of the entries matched a WeatherState (e.g. fog)
+  if (!this.condition) {
+    this.condition = json.weather[0].main;
+  }
 }
 
 module.exports = WeatherData;

@@ -1,0 +1,31 @@
+{
+  "coord": { "lon": -121.76, "lat": 46.85 },
+  "weather": [
+    { "id": 601, "main": "Snow", "description": "snow" },
+    { "id": 741, "main": "Fog", "description": "fog", "icon": "50n" },
+    { "id": 500, "main": "Rain", "description": "light rain", "icon": "10n" }
+  ],
+  "base": "stations",
+  "main": {
+    "temp": 6.55,
+    "pressure": 1002,
+    "humidity": 96,
+    "temp_min": 1,
+    "temp_max": 9
+  },
+  "visibility": 805,
+  "wind": { "speed": 2.6 },
+  "clouds": { "all": 90 },
+  "dt": 1508509440,
+  "sys": {
+    "type": 1,
+    "id": 2958,
+    "message": 0.004,
+    "country": "US",
+    "sunrise": 1508510003,
+    "sunset": 1508548148
+  },
+  "id": 5806769,
+  "name": "Pierce County",
+  "cod": 200
+}
